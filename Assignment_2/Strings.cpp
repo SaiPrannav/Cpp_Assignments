@@ -33,29 +33,6 @@ int main(){
     s1.resize(b);
     s1.shrink_to_fit();
     cout<<"Second String After Deleting Vowels Is :"<<s2<<endl;
-     int c=s1.size();
-     char temp;
-    for(int i=0;i<c-1;i++){
-        for(int j=0;j<c-i-1;j++){
-            if(s1[j]>s1[j+1]){
-                temp=s1[j];
-                s1[j]=s1[j+1];
-                s1[j+1]=temp;
-            }
-        }
-    }
-    cout<<"First String After Sorting Is :"<<s1<<endl;
-    int d=s2.size();
-    for(int i=0;i<d-1;i++){
-        for(int j=0;j<d-i-1;j++){
-            if(s2[j]>s2[j+1]){
-                temp=s2[j];
-                s2[j]=s2[j+1];
-                s2[j+1]=temp;
-            }
-        }
-    }
-    cout<<"Second String After Sorting Is :"<<s2<<endl;
     for(int i=0;i<s1.size();i++){
         if(s1[i]>='A'&&s1[i]<='Z'){
             s1[i]=s1[i]+32; 
@@ -84,5 +61,28 @@ int main(){
     cout<<"Second String Reversed String Is :"<<s2<<endl;
     s1+=s2;
     cout<<"Concatenated String Is :"<<s1<<endl;
+    int g;
+    cout<<"Enter How Many Strings You Want To Enter For Sorting :";
+    cin>>g;
+    string s[g];
+    for(int i=0;i<g;i++){
+        cout<<"Enter The "<<i+1<<" String :";
+        cin>>s[i];
+    }
+    for(int i=0;i<g-1;i++){
+        for(int j=0;j<g-i-1;j++){
+            if(s[j]>s[j+1]){
+                string temp;
+                temp=s[j];
+                s[j]=s[j+1];
+                s[j+1]=temp;
+            }
+        }
+    }
+    cout<<"The Strings In Sorted Form Are :";
+    for(int i=0;i<g;i++){
+        cout<<s[i]<<" ";
+    }
     return 0;
 }
+
