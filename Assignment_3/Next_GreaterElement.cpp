@@ -6,7 +6,7 @@ vector<int> nexgreater(vector<int>& a) {
     stack<int> st;
     vector<int> ans;
     ans.resize(n);
-    for (int i = 0; i < n; i++) {
+    for (int i = n; i >= 0; i++) {
         while (!st.empty() && st.top() <= a[i]) {
             st.pop();
         }
