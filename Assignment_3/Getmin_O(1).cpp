@@ -1,61 +1,50 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <stack>
 using namespace std;
+
 class MinStack {
-    stack<int> st;
-    long long mini;
+    stack<int> mainStack;
+    stack<int> minStack;
+
 public:
-    MinStack() {
-        while (!st.empty()) st.pop();
-        mini = INT_MAX;
-    }
-    void push(int value) {
-        long long val = value;
-        if (st.empty()) {
-            mini = val;
-            st.push(val);
-        } else {
-            if (val < mini) 
-                st.push(2LL * val - mini);
-                mini = val;
-            } else {
-                st.push(val);
-            }
+    void push(int x) {
+        mainStack.push(x);
+
+        if (minStack.empty() || x <= minStack.top()) {
+            minStack.push(x);
         }
     }
+
     void pop() {
-        if (st.empty()) return;
+        if (mainStack.empty()) return;
 
-        long long el = st.top();
-        st.pop();
 
-        if (el < mini) {
-          
-            mini = 2LL * mini - el;
+        if (mainStack.top() == minStack.top()) {
+            minStack.pop();
         }
-    }
-    int top() {
-        if (st.empty()) return -1;
 
-        long long el = st.top();
-        if (el < mini) return (int)mini;
-        return (int)el;
+        mainStack.pop();
     }
+
+    int top() {
+        if (mainStack.empty()) return -1;
+        return mainStack.top();
+    }
+
     int getMin() {
-        return (int)mini;
+        if (minStack.empty()) return -1;
+        return minStack.top();
     }
 };
+
 int main() {
-    MinStack st;
-    st.push(5);
-    st.push(3);
-    st.push(7);
-    cout << "Current Min: " << st.getMin() << endl;
-    cout << "Top: " << st.top() << endl;          
-    st.pop();
-    cout << "Top after pop: " << st.top() << endl; 
-    cout << "Current Min: " << st.getMin() << endl; 
-    st.pop();
-    cout << "Current Min after popping 3: " << st.getMin() << endl; 
+    MinStack s;
+    s.push(5);
+    s.push(3);
+    s.push(7);
+    s.push(2);
+    cout << "Minimum: " << s.getMin() << endl; 
+    s.pop();
+    cout << "Minimum after pop: " << s.getMin() << endl; 
     return 0;
 }
-
