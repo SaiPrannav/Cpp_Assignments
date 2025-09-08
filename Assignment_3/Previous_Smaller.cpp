@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 vector<int> presmaller(vector<int>& a) {
     int n = a.size();
@@ -25,4 +26,5 @@ int main() {
     for (int x : res) cout << x << " ";
     cout << endl;
     return 0;
+
 }
