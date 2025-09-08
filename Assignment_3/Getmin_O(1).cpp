@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 class MinStack {
-    stack<long long> st;
+    stack<int> st;
     long long mini;
 public:
     MinStack() {
@@ -14,8 +14,7 @@ public:
             mini = val;
             st.push(val);
         } else {
-            if (val < mini) {
-                // store modified value
+            if (val < mini) 
                 st.push(2LL * val - mini);
                 mini = val;
             } else {
@@ -59,3 +58,4 @@ int main() {
     cout << "Current Min after popping 3: " << st.getMin() << endl; 
     return 0;
 }
+
