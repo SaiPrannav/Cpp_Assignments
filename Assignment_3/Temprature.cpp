@@ -13,7 +13,7 @@ void dailyTemperatures(vector<int>&T)
         s.push(i);
     }
     for (int i = 0; i < n; i++) {
-        cout << daysOfWait[i] << " ";
+        cout << outvector[i] << " ";
     }
 }
 int main()
