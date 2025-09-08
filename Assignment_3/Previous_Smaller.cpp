@@ -5,7 +5,7 @@ vector<int> presmaller(vector<int>& a) {
     int n = a.size();
     stack<int> st;
     vector<int> ans;
-    ans.reserve(n);
+    ans.resize(n);
     for (int i = 0; i < n; i++) {
         while (!st.empty() && st.top() >= a[i]) {
             st.pop();
@@ -28,3 +28,4 @@ int main() {
     return 0;
 
 }
+
