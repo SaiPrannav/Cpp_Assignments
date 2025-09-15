@@ -7,8 +7,8 @@ private:
 public:
     void push(int x) {
         q.push(x);                     
-        int n=(int)q.size()-1;     
-        for(int i = 0; i < n; ++i){  
+        int n=q.size()-1;     
+        for(int i=0;i<n;i++){  
             q.push(q.front());
             q.pop();
         }
@@ -43,3 +43,4 @@ int main() {
     cout<<"top after pop: "<<s1.top();
     return 0;
 }
+
